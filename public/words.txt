@@ -14,12 +14,7 @@ elbow,flask,hoist,inert,jolly,kegga,leech,marsh,plush,quack,refer,shred,trace,up
 youth,zebra,adore,blimp,crane,dealt,elude,frown,grasp,haste,
 input,juicy,knock,lemon,medal,plush,quart,ridge,slash,table,umbra,wheel,xerox,yacht,zebra,ample,bulge,chaos,decay,empty,fable,grain,hound,jolly,known,leech,mirth,plush,query,rider,shred,table,upend,waive,xenon,yacht,zebra,abide,blitz,crown,drift,eager,flask,
 grape,hoist,infer,joker,kneel,lemon,marsh,noble,olive,plush,
-quart,rider,shred,table,upend,whale,xenon,yacht,zebra.
-
-
-Certainly, here is the list of words in lowercase with no space after the commas:
-
-aahed,aalii,aargh,aarti,abaca,abaci,aback,abacs,abaft,abaka,abamp,aband,abase,abash,abask,abate,abaya,abbas,abbed,abbes,abbey,abbot,abcee,
+quart,rider,shred,table,upend,whale,xenon,yacht,zebra,aahed,aalii,aargh,aarti,abaca,abaci,aback,abacs,abaft,abaka,abamp,aband,abase,abash,abask,abate,abaya,abbas,abbed,abbes,abbey,abbot,abcee,
 abeam,abear,abele,abers,abets,abhor,abide,abies,abled,abler,ables,ablet,ablow,abmho,abode,abohm,aboil,aboma,aboon,abord,abore,abort,about,
 above,abram,abray,abrim,abrin,abris,absey,absit,abuna,abune,abuse,abuts,abuzz,abyes,abysm,abyss,acais,acari,accas,accoy,acerb,acers,aceta,
 achar,ached,aches,achoo,acids,acidy,acing,acini,ackee,acker,acmes,acmic,acned,acnes,acock,acold,acorn,acred,acres,acrid,acros,acted,actin,
