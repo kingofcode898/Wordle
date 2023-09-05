@@ -11,6 +11,20 @@
     <div class="popup-container" id="popupContainer">
       <div class="popup-content">
         <p>Welcome to Wordle!</p>
+        <div class="rules">
+          <div class="rule">
+            <div style="width: 100px; height: 100px; background-color: #2E2E2E;"></div>
+            <p>Grey means the letter is not in the word</p>
+          </div>
+          <div class="rule">
+            <div style="width: 100px; height: 100px; background-color: #FFE12E"></div>
+            <p style="margin-left: 5px;">Yellow means the letter is in the word just not in the right spot</p>
+          </div>
+          <div class="rule">
+            <div style="width: 100px; height: 100px; background-color: #45E66E;"></div>
+            <p>Green means the letter is in the right spot</p>
+          </div>
+        </div>
         <button id="Play">Play!</button>
       </div>
     </div>
@@ -59,6 +73,13 @@
           <div id="square5row5" class="square"></div>
         </div>
       </div>
+    </div>
+    <div class="win" id="winScreen">
+      <div>
+        <h1>Congrats you guessed the Word </h1>
+        <p>Play Again?</p>
+      </div>      
+      <button id="restartButton">Restart</button>
     </div>
     <div class="animated-box"></div>
 

@@ -18,10 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   let targetWord;
+  let listOfWords
   
-  generateRandomWord().then(randomWord => {
-    targetWord = randomWord;
-  
+  generateRandomWord().then(things => {
+    targetWord = things[0];
+    listOfWords = things[1]
   });
   
   document.getElementById('word-input').addEventListener('keyup', function(event) {
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const randomIndex = Math.floor(Math.random() * listOfWords.length);
       const randomWord = listOfWords[randomIndex];
       console.log('Random word:', randomWord);
-      return randomWord;
+      return [randomWord, listOfWords];
   
     } catch (error) {
       console.error('Error reading the file:', error);
@@ -73,54 +74,86 @@ document.addEventListener('DOMContentLoaded', () => {
     return alphabetMapping;
   }
   
+  function showWinscreen(){
+    document.getElementById('winScreen').style.display = "block"; 
+  }
+
+  // Get a reference to the restart button element by its id
+const restartButton = document.getElementById("restartButton");
+
+// Add a click event listener to the button
+restartButton.addEventListener("click", function() {
+    // Reload the current page
+    window.location.reload();
+});
+
   
   
-  function checkGuess() {
-    const guess = document.getElementById('word-input').value.toLowerCase();
-    
-    // Update the color of the appropriate squares based on numguess
-    let square1 = document.getElementById(`square1row${numguess}`);
-    let square2 = document.getElementById(`square2row${numguess}`);
-    let square3 = document.getElementById(`square3row${numguess}`);
-    let square4 = document.getElementById(`square4row${numguess}`);
-    let square5 = document.getElementById(`square5row${numguess}`);
-    
-    const squares = [square1, square2, square3, square4, square5];
+function checkGuess() {
+  const guess = document.getElementById('word-input').value.toLowerCase();
+
+  // Update the color of the appropriate squares based on numguess
+  let square1 = document.getElementById(`square1row${numguess}`);
+  let square2 = document.getElementById(`square2row${numguess}`);
+  let square3 = document.getElementById(`square3row${numguess}`);
+  let square4 = document.getElementById(`square4row${numguess}`);
+  let square5 = document.getElementById(`square5row${numguess}`);
+
+  const squares = [square1, square2, square3, square4, square5];
+
+  const Lettermap = mapLetters(targetWord);
+
+  if (guess.length !== 5) {
+    document.getElementById('result').textContent = 'Please enter a 5-letter word.';
+    return;
+  }
   
-    const Lettermap = mapLetters(targetWord);
-  
-    if (guess.length !== 5) {
-      document.getElementById('result').textContent = 'Please enter a 5-letter word.';
-      return;
-    }
-  
-    let resultText = ''; // Initialize resultText
-    for (let i = 0; i < 5; i++) {
-      let square = squares[i];
+  if (listOfWords.includes(guess) != true){
+    document.getElementById('result').textContent = 'Please enter a real  5-letter word.';
+    return;
+  }
+
+
+  let resultText = ''; // Initialize resultText
+  let animationDelay = 0; // Initialize animationDelay
+
+  for (let i = 0; i < 5; i++) {
+    let square = squares[i];
+
+    const applyAnimation = () => {
       if (guess[i] === targetWord[i]) {
+        square.style.animation = "colorChangeGreen 1s";
+        square.style.backgroundColor = '#45E66E';
         square.textContent = guess[i].toUpperCase();
-        square.style.backgroundColor = '#45E66E'; 
         Lettermap[guess[i]]--; // Decrement frequency
       } else if (Lettermap[guess[i]] > 0) { // Check frequency
         square.textContent = guess[i].toUpperCase();
-        square.style.backgroundColor = '#FFE12E'; 
+        square.style.animation = "colorChangeYellow 1s";
+        square.style.backgroundColor = '#FFE12E';
         Lettermap[guess[i]]--; // Decrement frequency
       } else {
+        square.style.animation = "noChange 1s";
         square.textContent = guess[i].toUpperCase();
       }
       resultText += square.textContent; // Add the content of the square to resultText
-    }
-  
-    if (resultText === targetWord.toUpperCase()) {
-      resultText = `Congratulations! You guessed the word: ${targetWord.toUpperCase()}`;
-      document.getElementById('guess-btn').disabled = true;
-    } else if (numguess >= 5) {
-      resultText = 'Sorry you ran out of guesses.';
-      document.getElementById('guess-btn').disabled = true;
-    }
-  
-    document.getElementById('result').textContent = resultText; // Update the result display
-    
-    numguess++;
+    };
+
+    setTimeout(applyAnimation, animationDelay);
+    animationDelay += 500; // Increase the delay for the next square
   }
+
+  if (resultText === targetWord.toUpperCase()) {
+    resultText = `Congratulations! You guessed the word: ${targetWord.toUpperCase()}`;
+    document.getElementById('guess-btn').disabled = true;
+    showWinscreen();
+  } else if (numguess >= 5) {
+    resultText = 'Sorry, you ran out of guesses.';
+    document.getElementById('guess-btn').disabled = true;
+  }
+
+  document.getElementById('result').textContent = resultText; // Update the result display
+
+  numguess++;
+}
+
   
