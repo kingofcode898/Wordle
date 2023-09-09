@@ -142,7 +142,7 @@ function checkGuess() {
     animationDelay += 500; // Increase the delay for the next square
   }
 
-  if (resultText === targetWord.toUpperCase()) {
+  if (guess === targetWord) {
     resultText = `Congratulations! You guessed the word: ${targetWord.toUpperCase()}`;
     document.getElementById('guess-btn').disabled = true;
     showWinscreen();
