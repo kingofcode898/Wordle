@@ -147,7 +147,7 @@ function checkGuess() {
     document.getElementById('guess-btn').disabled = true;
     showWinscreen();
   } else if (numguess >= 5) {
-    resultText = 'Sorry, you ran out of guesses.';
+    resultText `Sorry, you ran out of guesses. The word was ${tragetWord}`;
     document.getElementById('guess-btn').disabled = true;
   }
 
