@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 body {
     font-family: Arial, sans-serif;
   }
+.title{
+  font-family: 'Lilita One', cursive;
+  font-size: 50px;
+}
   .wordle-container {
     text-align: center;
     margin-top: 50px;
@@ -42,8 +47,7 @@ body {
 }
 
 @media (max-width: 800px) {
-  
-  
+   
   .square {
     margin: 2px;
     height: 60px; 
@@ -54,7 +58,7 @@ body {
     text-align: center;
   }
   #board{
-    width: 75%;
+    width: 80%;
     max-width: 600px;
     margin: 50px auto;
     padding: 10px;
