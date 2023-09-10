@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function generateRandomWord() {
     try {
       const response = await fetch('./words.txt'); // Await the fetch operation
-      const content = await response.text(); // Await the response.text() operation
-      console.log(content);
+      const content = await response.text(); // Await the response.text() operation;
   
       const listOfWords = content.split(',');
   
@@ -147,7 +146,7 @@ function checkGuess() {
     document.getElementById('guess-btn').disabled = true;
     showWinscreen();
   } else if (numguess >= 5) {
-    resultText `Sorry, you ran out of guesses. The word was ${tragetWord}`;
+    resultText = `Sorry, you ran out of guesses. The word was ${targetWord}`;
     document.getElementById('guess-btn').disabled = true;
   }
 
