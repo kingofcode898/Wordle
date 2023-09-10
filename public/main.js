@@ -119,18 +119,34 @@ function checkGuess() {
   for (let i = 0; i < 5; i++) {
     let square = squares[i];
 
+
     const applyAnimation = () => {
       if (guess[i] === targetWord[i]) {
         square.style.animation = "colorChangeGreen 1s";
         square.style.backgroundColor = '#45E66E';
         square.textContent = guess[i].toUpperCase();
         Lettermap[guess[i]]--; // Decrement frequency
-      } else if (Lettermap[guess[i]] > 0) { // Check frequency
-        square.textContent = guess[i].toUpperCase();
-        square.style.animation = "colorChangeYellow 1s";
-        square.style.backgroundColor = '#FFE12E';
-        Lettermap[guess[i]]--; // Decrement frequency
-      } else {
+      } else if (Lettermap[guess[i]] > 0) { //check to see if its in the word 
+         let num = Lettermap[guess[i]]
+         let count = 1
+        //loop checks for the future instances of the letter to determine if it can light up yellow
+         for(let j = i; j < (4-i);j++) {
+          console.log(guess[j],targetWord[j],j)
+           if (guess[j] === targetWord[j]){
+             count++
+          }
+        }
+        if(num - count < 0) {
+          square.style.animation = "noChange 1s";
+          square.textContent = guess[i].toUpperCase();
+        }
+        else {
+          square.textContent = guess[i].toUpperCase();
+          square.style.animation = "colorChangeYellow 1s";
+          square.style.backgroundColor = '#FFE12E';
+          Lettermap[guess[i]]--;}
+        }
+        else {
         square.style.animation = "noChange 1s";
         square.textContent = guess[i].toUpperCase();
       }
