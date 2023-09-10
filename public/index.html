@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
@@ -32,7 +33,7 @@
       <h1 class="title">Wordle Game</h1>
       <p>Guess the 5-letter word:</p>
       <div>
-        <input type="text" id="word-input" maxlength="5" />
+        <input class="text-input" type="text" id="word-input" maxlength="5" />
         <button id="guess-btn">Guess</button>
       </div>
       <p id="result"></p>
@@ -76,7 +77,8 @@
     </div>
     <div class="win" id="winScreen">
       <div>
-        <h1>Congrats you guessed the Word </h1>
+        <h1 class="winTitle">Congrats you guessed the Word</h1>
+        <p id="correct"></p>
         <p>Play Again?</p>
       </div>      
       <button id="restartButton">Restart</button>

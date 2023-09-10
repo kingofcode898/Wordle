@@ -17,6 +17,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   
+  var count = 200;
+var defaults = {
+  origin: { y: 0.7 }
+};
+
+function fire(particleRatio, opts) {
+  confetti(Object.assign({}, defaults, opts, {
+    particleCount: Math.floor(count * particleRatio)
+  }))
+}
+
+function showConfetti() {
+   fire(0.25, {
+   spread: 26,
+   startVelocity: 55, 
+  });
+fire(0.2, {
+  spread: 60,
+});
+fire(0.35, {
+  spread: 100,
+  decay: 0.91,
+  scalar: 0.8
+});
+fire(0.1, {
+  spread: 120,
+  startVelocity: 25,
+  decay: 0.92,
+  scalar: 1.2
+});
+fire(0.1, {
+  spread: 120,
+  startVelocity: 45,
+});
+}
+
+function showWinscreen(){
+    document.getElementById('winScreen').style.display = "block"; 
+    showConfetti();
+  }
   let targetWord;
   let listOfWords
   
@@ -33,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   document.getElementById('guess-btn').addEventListener('click', checkGuess);
-  document.addEventListener
   
   
   async function generateRandomWord() {
@@ -73,9 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return alphabetMapping;
   }
   
-  function showWinscreen(){
-    document.getElementById('winScreen').style.display = "block"; 
-  }
 
   // Get a reference to the restart button element by its id
 const restartButton = document.getElementById("restartButton");
@@ -119,7 +155,6 @@ function checkGuess() {
   for (let i = 0; i < 5; i++) {
     let square = squares[i];
 
-
     const applyAnimation = () => {
       if (guess[i] === targetWord[i]) {
         square.style.animation = "colorChangeGreen 1s";
@@ -128,15 +163,15 @@ function checkGuess() {
         Lettermap[guess[i]]--; // Decrement frequency
       } else if (Lettermap[guess[i]] > 0) { //check to see if its in the word 
          let num = Lettermap[guess[i]]
-         let count = 1
+         let count = 0
         //loop checks for the future instances of the letter to determine if it can light up yellow
          for(let j = i; j < (4-i);j++) {
           console.log(guess[j],targetWord[j],j)
-           if (guess[j] === targetWord[j]){
+           if (guess[i] === targetWord[j]){
              count++
           }
         }
-        if(num - count < 0) {
+        if(num - count <= 0) {
           square.style.animation = "noChange 1s";
           square.textContent = guess[i].toUpperCase();
         }
@@ -160,6 +195,7 @@ function checkGuess() {
   if (guess === targetWord) {
     resultText = `Congratulations! You guessed the word: ${targetWord.toUpperCase()}`;
     document.getElementById('guess-btn').disabled = true;
+    document.getElementById('correct').textContent = targetWord.toUpperCase();
     showWinscreen();
   } else if (numguess >= 5) {
     resultText = `Sorry, you ran out of guesses. The word was ${targetWord}`;
