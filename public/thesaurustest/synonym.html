@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yes</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div id="start" class="introScreen">
+        <h1>Welcome to the thesaures test</h1>
+        <h2>which mode do you want</h2>
+        <button onclick="Synonym()">
+           Synonym
+        </button>
+        <button onclick="">Antynom</button>
+    </div>
+    <div id="synonym" class="Synonym" style="display: none;">
+        <div id="finishScreen" class="done">
+            <h1>Times up!</h1>
+            <h2>Your score was {fill in score}</h2>
+            <button>Home</button>
+            <button>Play again</button>
+        </div>
+        <button onclick="timer()">Start</button>
+        <h1>This is the Synonym Game</h1>
+        <p id="score" class="Score">0</p>
+        <h2 id="word">Your word is</h2>
+        <h2 id="timerDisplay"></h2>
+        <div class="Board">
+            <input id ='input' type="text" />
+            <button onclick="checkIfSynonym()">Check</button>
+        </div>
+        <p id="result-text"></p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
-
-body {
+/* Begiing of wordle style */
+.wordle {
     font-family: Arial, sans-serif;
   }
 .title{
@@ -248,3 +248,4 @@ body {
   font-size: 24px;
 }
 
+/* end of wordle style */

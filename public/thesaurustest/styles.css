@@ -1,0 +1,24 @@
+.Score{
+    position: absolute;
+    left: 90%;
+    top: 0%;
+    font-size: 24px;
+}
+
+.done {
+    position: fixed; /* Use 'fixed' to keep it fixed in the viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Use transform to center it */
+    display: none;
+    z-index: 999; /* Optional: Set a z-index value to ensure it's above other content */
+    background-color: rgb(79, 79, 118);
+    text-align: center;
+    height: 50%;
+    width: 50%;
+
+}
+
+
+
+
