@@ -2,11 +2,31 @@ Synnomlist = {
     "meadow": ["grassland","pasture","plain","praire"],
     "fragile": ["delicate","feeble","frail","weak","brittle","crumbly","flimsy"],
     "happy": ["cheerful","upbeat","contented","merry","joyful","lively","jubilant","joyful"],
-    "hungry": [""]
+    "hungry": ["starved","ravenous",]
 }
 
-function timer(){
-    var sec = 1;
+let possibleWords = ["meadow","fragile","happy","hungry"];
+let correctWords = [];
+let score = 0;
+
+const correctBox = document.getElementById('correctBox')
+const home = document.getElementById('home')
+const finishScreen = document.getElementById('finishScreen')
+const synonym = document.getElementById('startSyn')
+const game = document.getElementById('game')
+const wordDisplay = document.getElementById('word')
+const scoreText = document.getElementById('score')
+
+function Synonym(){
+    home.style.display = 'none'
+    synonym.style.display = 'block'
+}
+
+function startSyn(){
+    synonym.style.display = 'none';
+    game.style.display = 'block'
+
+    var sec = 60;
     var timer = setInterval(function(){
         document.getElementById('timerDisplay').innerHTML=sec;
         sec--;
@@ -16,22 +36,6 @@ function timer(){
         }
         }, 1000);
     }
-
-
-let possibleWords = ["meadow","fragile"];
-let correctWords = [];
-let score = 0;
-
-const finishScreen = document.getElementById('finishScreen')
-const synonym = document.getElementById('synonym')
-const Start = document.getElementById('start')
-const wordDisplay = document.getElementById('word')
-
-function Synonym(){
-    Start.style.display = 'none'
-    synonym.style.display = 'block'
-}
-
 
 function generateRandomWord() {
     const randomIndex = Math.floor(Math.random() * possibleWords.length);
@@ -44,7 +48,7 @@ function generateRandomWord() {
 
 function addScore(){
     score += 100
-    document.getElementById('score').textContent = score
+    scoreText.textContent = score
 }
 
 targetWord = generateRandomWord()
@@ -64,8 +68,14 @@ function checkIfSynonym(){
 
     guess = document.getElementById('input').value
 
-    if(Synnomlist[targetWord].includes(guess) && !correctWords.includes(guess)) {
+    if  (Synnomlist[targetWord].includes(guess) && !correctWords.includes(guess)) {
         correctWords.push(guess)
+        //push word to correctBox
+        let word = document.createElement("p");
+        word.innerHTML = guess;
+        word.className = 'word'
+        document.getElementById("correctBox").appendChild(word);
+        
         console.log(correctWords)
         addScore()
         resultText = `Correct! ${guess} is a synonym to ${targetWord}`
@@ -79,10 +89,16 @@ function checkIfSynonym(){
     
     document.getElementById('result-text').textContent = resultText
 }
+
 document.getElementById('input').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevent default form submission behavior
-      checkIfSynonym(); // Call your function here
+      checkIfSynonym(); 
     }
   });
+
+document.getElementById('homeButton').addEventListener('click', () => {
+    
+    Synonym()
+})
 //end synonym game code

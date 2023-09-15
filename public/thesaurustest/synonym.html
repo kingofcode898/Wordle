@@ -7,31 +7,37 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div id="start" class="introScreen">
-        <h1>Welcome to the thesaures test</h1>
-        <h2>which mode do you want</h2>
-        <button onclick="Synonym()">
-           Synonym
-        </button>
-        <button onclick="">Antynom</button>
+    <div id="home" class="home">
+        <img class="homeImg" src="/public/media/bg.png"/>
+        <div class="content">
+            <h1>Welcome to the Thesaurus Test</h1>
+            <h2>Which mode do you want</h2>
+            <button class="choice" onclick="Synonym()">Synonym</button>
+            <button class="choice" onclick="Antonym()">Antonym</button>
+        </div>
     </div>
-    <div id="synonym" class="Synonym" style="display: none;">
+    <div id="startSyn" class="startSyn">
+        <h1>Welcome to the synonym game</h1>
+        <button onclick="startSyn()">Start</button>
+    </div>
+    <div id="game" class="Synonym" style="display: none;">
         <div id="finishScreen" class="done">
             <h1>Times up!</h1>
-            <h2>Your score was {fill in score}</h2>
-            <button>Home</button>
-            <button>Play again</button>
+            <h2 id="finalScore">Your score was {fill in score}</h2>
+            <button id="homeButton">Home</button>
+            <button id="replayButton">Play again</button>
         </div>
-        <button onclick="timer()">Start</button>
         <h1>This is the Synonym Game</h1>
         <p id="score" class="Score">0</p>
         <h2 id="word">Your word is</h2>
-        <h2 id="timerDisplay"></h2>
+        <h2 id="timerDisplay">60</h2>
+        <p id="result-text"></p>
         <div class="Board">
             <input id ='input' type="text" />
             <button onclick="checkIfSynonym()">Check</button>
-        </div>
-        <p id="result-text"></p>
+            <div id="correctBox" class="correctBox">
+            </div>
+        </div> 
     </div>
     <script src="index.js"></script>
 </body>
