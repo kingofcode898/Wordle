@@ -2,7 +2,7 @@ Synnomlist = {
     "meadow": ["grassland","pasture","plain","praire"],
     "fragile": ["delicate","feeble","frail","weak","brittle","crumbly","flimsy"],
     "happy": ["cheerful","upbeat","contented","merry","joyful","lively","jubilant","joyful"],
-    "hungry": ["starved","ravenous",]
+    "hungry": ["starved","ravenous","starving","famished"]
 }
 
 let possibleWords = ["meadow","fragile","happy","hungry"];
@@ -26,7 +26,7 @@ function startSyn(){
     synonym.style.display = 'none';
     game.style.display = 'block'
 
-    var sec = 60;
+    var sec = 0;
     var timer = setInterval(function(){
         document.getElementById('timerDisplay').innerHTML=sec;
         sec--;
@@ -98,7 +98,13 @@ document.getElementById('input').addEventListener('keyup', function(event) {
   });
 
 document.getElementById('homeButton').addEventListener('click', () => {
-    
-    Synonym()
+    home.style.display = 'block'
+    finishScreen.style.display = 'none'
+    game.style.display = 'none'
+})
+
+document.getElementById('replayButton').addEventListener('click',() =>{
+    finishScreen.style.display = 'none'
+    startSyn()
 })
 //end synonym game code

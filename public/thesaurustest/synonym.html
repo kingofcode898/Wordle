@@ -27,17 +27,21 @@
             <button id="homeButton">Home</button>
             <button id="replayButton">Play again</button>
         </div>
-        <h1>This is the Synonym Game</h1>
+        <div class="synGame">
+            <h1>This is the Synonym Game</h1>
         <p id="score" class="Score">0</p>
         <h2 id="word">Your word is</h2>
         <h2 id="timerDisplay">60</h2>
         <p id="result-text"></p>
         <div class="Board">
-            <input id ='input' type="text" />
-            <button onclick="checkIfSynonym()">Check</button>
+            <div class="input"> 
+                <input id ='input' type="text" />
+                <button onclick="checkIfSynonym()">Check</button>
+            </div>
             <div id="correctBox" class="correctBox">
             </div>
         </div> 
+        </div>
     </div>
     <script src="index.js"></script>
 </body>

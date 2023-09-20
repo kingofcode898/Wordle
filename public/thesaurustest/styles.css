@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Handjet&family=Lilita+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Handjet&family=Lilita+One&display=swap");
 
 /*
  font-family: 'Caveat', cursive;
@@ -7,81 +7,99 @@ font-family: 'Lilita One', cursive;
 
 */
 
-.Score{
-    position: absolute;
-    left: 90%;
-    top: 0%;
-    font-size: 24px;
+.Score {
+  position: absolute;
+  left: 90%;
+  top: 0%;
+  font-size: 24px;
 }
 
 .done {
-    position: fixed; /* Use 'fixed' to keep it fixed in the viewport */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Use transform to center it */
-    display: none;
-    z-index: 999; /* Optional: Set a z-index value to ensure it's above other content */
-    background-color: rgb(79, 79, 118);
-    text-align: center;
-    height: 50%;
-    width: 50%;
-
+  position: fixed; /* Use 'fixed' to keep it fixed in the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Use transform to center it */
+  display: none;
+  z-index: 999; /* Optional: Set a z-index value to ensure it's above other content */
+  background-color: rgb(79, 79, 118);
+  text-align: center;
+  height: 50%;
+  width: 50%;
+  
 }
-.home{
-    font-family: 'Lilita One', cursive;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.home {
+  font-family: "Lilita One", cursive;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-.homeImg{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.homeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-
-
-.startSyn{
-    display: none;
+.startSyn {
+  display: none;
 }
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    z-index: 1;
-    font-family: 'Handjet', cursive;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+  font-family: "Handjet", cursive;
 }
 
-.content h1{
-    margin: 20px;
-    font-weight: 600;
-    font-size: 56px;
+.content h1 {
+  margin: 20px;
+  font-weight: 600;
+  font-size: 56px;
 }
 
 .content h2 {
-    margin: 100px 20px 20px 20px;
-    font-weight: 600;
+  margin: 100px 20px 20px 20px;
+  font-weight: 600;
+}
+
+.synGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.Score,
+#word,
+#timerDisplay,
+#result-text,
+.Board {
+  margin: 5px;
+}
+
+
+.input{
+    margin-bottom: 50px;
 }
 
 .choice {
-    margin: 10px 50px 50px 50px;
-    width: 150px;
-    height: 45px;
-    background-color: rgb(241, 207, 143);
-    border: 2px solid black;
-    font-family: 'Handjet', cursive;
+  margin: 10px 50px 50px 50px;
+  width: 150px;
+  height: 45px;
+  background-color: rgb(241, 207, 143);
+  border: 2px solid black;
+  font-family: "Handjet", cursive;
 }
 
-.correctBox{
-    width: 500px;
-    height: 500px;
-    background-color: aliceblue;
+.correctBox {
+  width: 500px;
+  height: 500px;
+  background-color: aliceblue;
 }
-
-
