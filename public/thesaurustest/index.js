@@ -6,8 +6,11 @@ Synnomlist = {
 }
 
 let possibleWords = ["meadow","fragile","happy","hungry"];
+let usedWords = [];
 let correctWords = [];
 let score = 0;
+let randomWord;
+let randomIndex;
 
 const correctBox = document.getElementById('correctBox')
 const home = document.getElementById('home')
@@ -23,10 +26,12 @@ function Synonym(){
 }
 
 function startSyn(){
+   usedWords = []
+
     synonym.style.display = 'none';
     game.style.display = 'block'
 
-    var sec = 0;
+    var sec = 60;
     var timer = setInterval(function(){
         document.getElementById('timerDisplay').innerHTML=sec;
         sec--;
@@ -38,9 +43,13 @@ function startSyn(){
     }
 
 function generateRandomWord() {
-    const randomIndex = Math.floor(Math.random() * possibleWords.length);
-    const randomWord = possibleWords[randomIndex];
     
+    while (!usedWords.includes(randomWord)){
+        randomIndex = Math.floor(Math.random() * possibleWords.length);
+        randomWord = possibleWords[randomIndex] 
+    }
+
+    usedWords.push(randomWord);
     wordDisplay.textContent = `Your word is: ${randomWord}`
     console.log(`The word is ${randomWord}`)
     return randomWord
@@ -102,6 +111,10 @@ document.getElementById('homeButton').addEventListener('click', () => {
     finishScreen.style.display = 'none'
     game.style.display = 'none'
 })
+
+document.getElementById('skip').addEventListener('click', () => {
+    targetWord = generateRandomWord()
+} )
 
 document.getElementById('replayButton').addEventListener('click',() =>{
     finishScreen.style.display = 'none'
